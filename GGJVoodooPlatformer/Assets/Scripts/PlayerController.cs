@@ -1,0 +1,106 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class PlayerController : MonoBehaviour {
+
+    [HideInInspector]
+    public bool facingRight = true;         // For determining which way the player is currently facing.
+    [HideInInspector]
+    public bool jump = false;               // Condition for whether the player should jump.
+    public bool doubleJump = true;
+    public GameObject shotSpawn;
+    public GameObject shotObject;
+    public float shotSpeed = 10f;
+    public float moveSpeed = 10f;
+
+
+    public float maxSpeed = 5f;             // The fastest the player can travel in the x axis.
+    public AudioClip[] jumpClips;           // Array of clips for when the player jumps.
+    public float jumpForce = 1000f;         // Amount of force added when the player jumps.
+    public Animator anim;                  // Reference to the player's animator component.
+    public Transform groundCheck;          // A position marking where to check if the player is grounded.
+    public float groundRadius = 0.2f;
+    public LayerMask whatIsGround;
+    public float fireRate;
+    public AudioSource fireClip;
+
+
+    public bool grounded = false;          // Whether or not the player is grounded.
+
+    float nextFire;
+
+
+    void Awake()
+    {
+        // Setting up references.
+        //groundCheck = transform.Find("groundCheck");
+    }
+
+    void Start()
+    {
+        //anim = GetComponent<Animator>();
+    }
+
+
+    void Update()
+    {
+        // If the jump button is pressed and the player is grounded then the player should jump.
+        if (Input.GetButtonDown("Jump") && (grounded || doubleJump))
+        {
+            //anim.SetBool("Grounded", false);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+            if (!grounded)
+                doubleJump = false;
+        }
+
+        if (Input.GetButton("Fire1"))
+        {
+            //anim.SetBool("Shooting", true);
+        }
+        else
+        {
+            //anim.SetBool("Shooting", false);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundRadius, whatIsGround);
+        //for (int i = 0; i < colliders.Length; i++)
+        //{
+        //    Debug.Log(colliders[i].name);
+        //}
+        if (grounded)
+            doubleJump = true;
+        //anim.SetBool("Grounded", grounded);
+        //anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
+
+
+        float move = Input.GetAxis("Horizontal");
+        //GetComponent<Rigidbody2D>().velocity = GetComponent<Transform>().right * move * moveSpeed;
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(move * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        //anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+
+
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+        if (facingRight && move < 0)
+            Flip();
+        else if (!facingRight && move > 0)
+            Flip();
+    }
+
+    void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        facingRight = !facingRight;
+
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+}
