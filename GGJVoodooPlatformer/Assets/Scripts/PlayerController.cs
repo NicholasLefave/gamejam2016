@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour {
 
 
     public float maxSpeed = 5f;             // The fastest the player can travel in the x axis.
-    public AudioClip[] jumpClips;           // Array of clips for when the player jumps.
     public float jumpForce = 1000f;         // Amount of force added when the player jumps.
     public Animator anim;                  // Reference to the player's animator component.
     public Transform groundCheck;          // A position marking where to check if the player is grounded.
@@ -44,6 +43,19 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
+        float move = Input.GetAxis("Horizontal");
+        var m = transform.position.x;
+        //GetComponent<Rigidbody2D>().velocity = GetComponent<Transform>().right * move * moveSpeed;
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(move * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        //anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        //transform.position = m + (move * moveSpeed);
+        Debug.Log("move:" + move);
+        var val = move * moveSpeed * Time.deltaTime;
+        Debug.Log("val:" + val);
+        Debug.Log("m:" + m + val);
+
+        transform.position = new Vector2(transform.position.x + val, transform.position.y);
         // If the jump button is pressed and the player is grounded then the player should jump.
         if (Input.GetButtonDown("Jump") && (grounded || doubleJump))
         {
@@ -78,12 +90,8 @@ public class PlayerController : MonoBehaviour {
         //anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 
 
-        float move = Input.GetAxis("Horizontal");
-        //GetComponent<Rigidbody2D>().velocity = GetComponent<Transform>().right * move * moveSpeed;
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        //anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
 
+        float move = Input.GetAxis("Horizontal");
 
         //GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
