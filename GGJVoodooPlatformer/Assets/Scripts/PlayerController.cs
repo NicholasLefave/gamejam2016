@@ -50,10 +50,7 @@ public class PlayerController : MonoBehaviour {
         //GetComponent<Rigidbody2D>().velocity = new Vector2(move * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         anim.SetFloat("Speed", Mathf.Abs(move));
         //transform.position = m + (move * moveSpeed);
-        Debug.Log("move:" + move);
         var val = move * moveSpeed * Time.deltaTime;
-        Debug.Log("val:" + val);
-        Debug.Log("m:" + m + val);
 
         transform.position = new Vector2(transform.position.x + val, transform.position.y);
         // If the jump button is pressed and the player is grounded then the player should jump.
