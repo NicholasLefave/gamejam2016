@@ -32,12 +32,12 @@ public class PlayerController : MonoBehaviour {
     void Awake()
     {
         // Setting up references.
-        //groundCheck = transform.Find("groundCheck");
+        groundCheck = transform.Find("groundCheck");
     }
 
     void Start()
     {
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour {
         //GetComponent<Rigidbody2D>().velocity = GetComponent<Transform>().right * move * moveSpeed;
         //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         //GetComponent<Rigidbody2D>().velocity = new Vector2(move * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        //anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        anim.SetFloat("Speed", Mathf.Abs(move));
         //transform.position = m + (move * moveSpeed);
         Debug.Log("move:" + move);
         var val = move * moveSpeed * Time.deltaTime;
@@ -92,6 +92,11 @@ public class PlayerController : MonoBehaviour {
 
 
         float move = Input.GetAxis("Horizontal");
+
+        if(move == 0)
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
+        }
 
         //GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
