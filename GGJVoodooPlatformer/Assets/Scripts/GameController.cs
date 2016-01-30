@@ -12,4 +12,10 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+
+    public void killPlayer()
+    {
+        Debug.Break();
+    }
 }

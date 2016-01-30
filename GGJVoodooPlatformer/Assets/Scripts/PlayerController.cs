@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask whatIsGround;
     public float fireRate;
     public AudioSource fireClip;
+    GameController _controller;
 
 
     public bool grounded = false;          // Whether or not the player is grounded.
@@ -38,8 +39,16 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         anim = GetComponent<Animator>();
+        _controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            _controller.killPlayer();
+        }
+    }
 
     void Update()
     {
