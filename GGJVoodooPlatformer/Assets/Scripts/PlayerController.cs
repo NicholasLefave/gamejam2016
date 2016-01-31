@@ -51,13 +51,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.CompareTag("Boundary"))
-        {
-            _controller.killPlayer();
-        }
-    }
 
     public void touched()
     {
