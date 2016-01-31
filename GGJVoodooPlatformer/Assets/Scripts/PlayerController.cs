@@ -63,14 +63,12 @@ public class PlayerController : MonoBehaviour {
         if(!_touched)
         {
             float move = Input.GetAxis("Horizontal");
-            //GetComponent<Rigidbody2D>().velocity = GetComponent<Transform>().right * move * moveSpeed;
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(move * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             anim.SetFloat("Speed", Mathf.Abs(move));
             //transform.position = m + (move * moveSpeed);
-            var val = move * moveSpeed * Time.deltaTime;
 
-            transform.position = new Vector2(transform.position.x + val, transform.position.y);
+            //var val = move * moveSpeed * Time.deltaTime;
+
+            //transform.position = new Vector2(transform.position.x + val, transform.position.y);
             // If the jump button is pressed and the player is grounded then the player should jump.
             if (Input.GetButtonDown("Jump") && (grounded || doubleJump))
             {
@@ -95,28 +93,14 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        //Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundRadius, whatIsGround);
-        //for (int i = 0; i < colliders.Length; i++)
-        //{
-        //    Debug.Log(colliders[i].name);
-        //}
         if (grounded)
             doubleJump = true;
-        //anim.SetBool("Grounded", grounded);
-        //anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
-
-
 
         if(!_touched)
         {
             float move = Input.GetAxis("Horizontal");
 
-            if(move == 0)
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
-            }
-
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
             if (facingRight && move < 0)
                 Flip();
