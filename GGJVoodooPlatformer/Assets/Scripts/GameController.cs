@@ -33,6 +33,12 @@ public class GameController : MonoBehaviour {
     {
         // Stop player
         _player.GetComponent<PlayerController>().touched();
+        // Freeze positioning
+        _player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        // Change animation
+        var anim = _player.GetComponent<Animator>();
+        anim.SetFloat("Speed", 0);
+        
         // Play dying animation
     }
 }
