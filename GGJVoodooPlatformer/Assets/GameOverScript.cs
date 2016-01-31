@@ -19,7 +19,7 @@ public class GameOverScript : MonoBehaviour {
 
 	public void retry()
 	{
-		SceneManager.LoadScene("main");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	public void quit()
