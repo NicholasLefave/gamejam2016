@@ -12,9 +12,12 @@ public class GameOverScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	public void playerDied () 
+	public IEnumerator playerDied () 
 	{
 		gameOver.SetActive(true);
+		yield return new WaitForSeconds(2);
+		Camera.main.backgroundColor = Color.black;
+		Camera.main.cullingMask = 1 << LayerMask.NameToLayer("UI");
 	}
 
 	public void retry()
