@@ -1,0 +1,318 @@
+fileFormatVersion: 2
+guid: ca8651002e0a5a647aa56a7f6ac57cce
+timeCreated: 1454213879
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: terraintrans_0
+    21300002: terraintrans_1
+    21300004: terraintrans_2
+    21300006: terraintrans_3
+    21300008: terraintrans_4
+    21300010: terraintrans_5
+    21300012: terraintrans_6
+    21300014: terraintrans_7
+    21300016: terraintrans_8
+    21300018: terraintrans_9
+    21300020: terraintrans_10
+    21300022: terraintrans_11
+    21300024: terraintrans_12
+    21300026: terraintrans_13
+    21300028: terraintrans_14
+    21300030: terraintrans_15
+    21300032: terraintrans_16
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: terraintrans_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: terraintrans_1
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 288
+        width: 170
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: terraintrans_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 33
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: 50.5}
+        - {x: -16.5, y: -50.5}
+        - {x: 16.5, y: -50.5}
+        - {x: 16.5, y: 50.5}
+    - name: terraintrans_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 46
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 35.5}
+        - {x: -23, y: 31.5}
+        - {x: -23, y: -35.5}
+        - {x: 23, y: -35.5}
+        - {x: 23, y: 35.5}
+    - name: terraintrans_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 27}
+        - {x: -31, y: 20}
+        - {x: -31, y: -27}
+        - {x: 31, y: -27}
+        - {x: 31, y: 27}
+    - name: terraintrans_5
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 161
+        width: 37
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 49}
+        - {x: -18.5, y: -49}
+        - {x: 18.5, y: -49}
+        - {x: 18.5, y: 49}
+    - name: terraintrans_6
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 160
+        width: 57
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 51.5}
+        - {x: -28.5, y: 50.5}
+        - {x: -28.5, y: -51.5}
+        - {x: 28.5, y: -51.5}
+        - {x: 28.5, y: 51.5}
+    - name: terraintrans_7
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 160
+        width: 43
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21.5, y: 50}
+        - {x: -21.5, y: -50}
+        - {x: 21.5, y: -50}
+        - {x: 21.5, y: 50}
+    - name: terraintrans_8
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 160
+        width: 67
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: 51.5}
+        - {x: -33.5, y: -51.5}
+        - {x: 33.5, y: -51.5}
+        - {x: 33.5, y: 51.5}
+    - name: terraintrans_9
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 160
+        width: 49
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: 52}
+        - {x: -24.5, y: -52}
+        - {x: 24.5, y: -52}
+        - {x: 24.5, y: 50}
+        - {x: 20.5, y: 52}
+    - name: terraintrans_10
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 65
+        width: 27
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: terraintrans_11
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 64
+        width: 30
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: terraintrans_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 95
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16.5}
+        - {x: -16, y: -16.5}
+        - {x: 16, y: -16.5}
+        - {x: 16, y: 16.5}
+    - name: terraintrans_13
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 65
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: 31.5}
+        - {x: -16.5, y: -31.5}
+        - {x: 16.5, y: -31.5}
+        - {x: 16.5, y: 31.5}
+    - name: terraintrans_14
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 16
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 12}
+        - {x: -24, y: 6}
+        - {x: -24, y: -19}
+        - {x: 24, y: -19}
+        - {x: 24, y: 10}
+        - {x: 12, y: 12}
+    - name: terraintrans_15
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 19
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 8}
+        - {x: -19.5, y: 7}
+        - {x: -20.5, y: 5}
+        - {x: -20.5, y: -18}
+        - {x: 20.5, y: -18}
+        - {x: 20.5, y: 6}
+        - {x: 9.5, y: 8}
+    - name: terraintrans_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 19
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
