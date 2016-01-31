@@ -40,9 +40,8 @@ public class GameController : MonoBehaviour {
         anim.SetFloat("Speed", 0);
 		Camera.main.transform.position = new Vector3 (_player.transform.position.x, _player.transform.position.y, -1f);
 		Camera.main.orthographicSize = 2;
-		gameOver.GetComponent<GameOverScript>().playerDied();
-
-
+		_player.layer = LayerMask.NameToLayer("UI");
+		StartCoroutine(gameOver.GetComponent<GameOverScript>().playerDied());
         // Play dying animation
     }
 }
