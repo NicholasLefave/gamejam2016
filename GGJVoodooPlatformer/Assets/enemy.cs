@@ -4,7 +4,8 @@ using System.Collections;
 public class enemy : MonoBehaviour {
     public float moveSpeed;
     public float touchMoveSpeed = 0.5f;
-
+	public float upDown =.2f;
+	public float upDownAdj = .1f;
     private bool isChasing = true;
     private GameController _controller;
 
@@ -18,7 +19,21 @@ public class enemy : MonoBehaviour {
         if(isChasing)
         {
             float move = transform.position.x;
-            transform.position = new Vector2(move + (moveSpeed * Time.deltaTime), transform.position.y);
+			transform.position = new Vector2(move + (moveSpeed * Time.deltaTime), transform.position.y+(Time.deltaTime * upDown) );
+			if(upDown > 0)
+			{
+				if(upDown > 2)
+					upDown = -.2f;
+				else
+					upDown+= upDownAdj;
+			}
+			else 
+			{
+				if(upDown < -2f)
+					upDown = .2f;
+				else
+					upDown -= upDownAdj;
+			}
         }
         else
         {
@@ -32,6 +47,9 @@ public class enemy : MonoBehaviour {
     public void touchedPlayer()
     {
         isChasing = false;
+        var anim = GetComponent<Animator>();
+        anim.SetBool("catch", true);
         _controller.touchedPlayer();
+        transform.rotation = Quaternion.identity;
     }
 }

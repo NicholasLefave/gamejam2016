@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         anim = GetComponent<Animator>();
-        _controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+//        _controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
     public void touched()
     {
         _touched = true;
+        anim.SetBool("catch", true);
     }
 
     void Update()
@@ -106,19 +107,22 @@ public class PlayerController : MonoBehaviour {
 
 
 
-        float move = Input.GetAxis("Horizontal");
-
-        if(move == 0)
+        if(!_touched)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
+            float move = Input.GetAxis("Horizontal");
+
+            if(move == 0)
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
+            }
+
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+            if (facingRight && move < 0)
+                Flip();
+            else if (!facingRight && move > 0)
+                Flip();
         }
-
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-
-        if (facingRight && move < 0)
-            Flip();
-        else if (!facingRight && move > 0)
-            Flip();
     }
 
     void Flip()
