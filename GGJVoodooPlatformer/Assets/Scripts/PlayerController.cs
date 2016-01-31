@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject shotObject;
     public float shotSpeed = 10f;
     public float moveSpeed = 10f;
+	public AudioClip jumpSound;
 
+	private AudioSource source;
 
     public float maxSpeed = 5f;             // The fastest the player can travel in the x axis.
     public float jumpForce = 1000f;         // Amount of force added when the player jumps.
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour {
     {
         // Setting up references.
         groundCheck = transform.Find("groundCheck");
+		source = GetComponentInChildren<AudioSource> ();
     }
 
     void Start()
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour {
                 //anim.SetBool("Grounded", false);
                 GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+				source.PlayOneShot (jumpSound);
                 if (!grounded)
                     doubleJump = false;
             }
