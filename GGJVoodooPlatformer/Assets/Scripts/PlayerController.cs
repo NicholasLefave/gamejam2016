@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     public bool grounded = false;          // Whether or not the player is grounded.
 
     float nextFire;
+    bool _touched = false;
 
 
     void Awake()
@@ -50,35 +51,50 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.CompareTag("Boundary"))
+        {
+            _controller.killPlayer();
+        }
+    }
+
+    public void touched()
+    {
+        _touched = true;
+    }
+
     void Update()
     {
-        float move = Input.GetAxis("Horizontal");
-        var m = transform.position.x;
-        //GetComponent<Rigidbody2D>().velocity = GetComponent<Transform>().right * move * moveSpeed;
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(move * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        anim.SetFloat("Speed", Mathf.Abs(move));
-        //transform.position = m + (move * moveSpeed);
-        var val = move * moveSpeed * Time.deltaTime;
+        if(!_touched)
+        {
+            float move = Input.GetAxis("Horizontal");
+            //GetComponent<Rigidbody2D>().velocity = GetComponent<Transform>().right * move * moveSpeed;
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(move * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            anim.SetFloat("Speed", Mathf.Abs(move));
+            //transform.position = m + (move * moveSpeed);
+            var val = move * moveSpeed * Time.deltaTime;
 
-        transform.position = new Vector2(transform.position.x + val, transform.position.y);
-        // If the jump button is pressed and the player is grounded then the player should jump.
-        if (Input.GetButtonDown("Jump") && (grounded || doubleJump))
-        {
-            //anim.SetBool("Grounded", false);
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
-            if (!grounded)
-                doubleJump = false;
-        }
+            transform.position = new Vector2(transform.position.x + val, transform.position.y);
+            // If the jump button is pressed and the player is grounded then the player should jump.
+            if (Input.GetButtonDown("Jump") && (grounded || doubleJump))
+            {
+                //anim.SetBool("Grounded", false);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+                if (!grounded)
+                    doubleJump = false;
+            }
 
-        if (Input.GetButton("Fire1"))
-        {
-            //anim.SetBool("Shooting", true);
-        }
-        else
-        {
-            //anim.SetBool("Shooting", false);
+            if (Input.GetButton("Fire1"))
+            {
+                //anim.SetBool("Shooting", true);
+            }
+            else
+            {
+                //anim.SetBool("Shooting", false);
+            }
         }
     }
 
