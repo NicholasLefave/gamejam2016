@@ -4,7 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour {
     public GameObject _player;
     public float touchMoveSpeed = 0.5f;
-
+	public GameObject gameOver;
 	// Use this for initialization
 	void Start () {
 	
@@ -38,7 +38,11 @@ public class GameController : MonoBehaviour {
         // Change animation
         var anim = _player.GetComponent<Animator>();
         anim.SetFloat("Speed", 0);
-        
+		Camera.main.transform.position = new Vector3 (_player.transform.position.x, _player.transform.position.y, -1f);
+		Camera.main.orthographicSize = 2;
+		gameOver.GetComponent<GameOverScript>().playerDied();
+
+
         // Play dying animation
     }
 }
