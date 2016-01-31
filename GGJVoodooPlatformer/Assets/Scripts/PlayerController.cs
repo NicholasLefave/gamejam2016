@@ -66,9 +66,9 @@ public class PlayerController : MonoBehaviour {
             anim.SetFloat("Speed", Mathf.Abs(move));
             //transform.position = m + (move * moveSpeed);
 
-            //var val = move * moveSpeed * Time.deltaTime;
+            var val = move * moveSpeed * Time.deltaTime;
 
-            //transform.position = new Vector2(transform.position.x + val, transform.position.y);
+            transform.position = new Vector2(transform.position.x + val, transform.position.y);
             // If the jump button is pressed and the player is grounded then the player should jump.
             if (Input.GetButtonDown("Jump") && (grounded || doubleJump))
             {
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour {
         {
             float move = Input.GetAxis("Horizontal");
 
-            GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
             if (facingRight && move < 0)
                 Flip();
