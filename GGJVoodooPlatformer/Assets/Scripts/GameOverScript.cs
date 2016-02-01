@@ -5,6 +5,8 @@ using System.Collections;
 public class GameOverScript : MonoBehaviour {
 
 	public GameObject gameOver;
+	public AudioSource source;
+	public AudioClip clip;
 	// Use this for initialization
 	void Start () 
 	{
@@ -30,6 +32,8 @@ public class GameOverScript : MonoBehaviour {
 		yield return new WaitForSeconds(2);
 		Camera.main.backgroundColor = Color.black;
 		Camera.main.cullingMask = 1 << LayerMask.NameToLayer("UI");
+		source.Stop ();
+		source.PlayOneShot (clip);
 		gameOver.SetActive(true);
 	}
 
